@@ -9,7 +9,10 @@ const User = require('./Users');
 const Movie = require('./Movies');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://csc3916-react19-fredrick.onrender.com',
+  credentials: true
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
