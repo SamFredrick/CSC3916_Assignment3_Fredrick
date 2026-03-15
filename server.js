@@ -47,7 +47,8 @@ router.post('/signup', async (req, res) => {
 // SIGNIN
 router.post('/signin', async (req, res) => {
   try {
-    const user = await User.findOne({ username: req.body.username }).select('name username password');
+    const user = await User.findOne({ username: req.body.username }).select('name username +password');
+
 
     if (!user) {
       return res.status(401).json({ success: false, msg: 'Authentication failed. User not found.' });
